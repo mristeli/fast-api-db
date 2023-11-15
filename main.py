@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import FastAPI, Path
+from fastapi import FastAPI, Path, Query
 
 import database
 
@@ -12,4 +12,8 @@ async def word_length(word: Annotated[str, Path(title="The word the length of wh
 
 @app.get("/health", tags=["lifecycle"])
 async def health():
-    return database.is_alive()
+    return await database.is_alive()
+
+@app.get("/echo-from-db", tags=["query-test"])
+async def echo(number: Annotated[int, Query(title="number to echo from db")]):
+    return await database.echo_number(number)
