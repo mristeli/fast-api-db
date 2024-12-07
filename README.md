@@ -17,4 +17,4 @@ By default this microapp uses SQLLite. You can use PostgreSQL by adding the foll
 POSTGRESQL_DATABASE_URL=postgresql://test:Password123@localhost:5555
 ```
 
-You should then run `docker compose run -d` before running the devserver.
+You should then run `docker compose up -d` before running the devserver.
